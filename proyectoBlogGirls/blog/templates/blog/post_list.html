@@ -1,80 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% extends 'blog/base.html'%}
+{% block content%}
+<div class="row">
+    <table class="table table-hover">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th scope="col">
+                    No.
+                </th>
+                <th scope="col">
+                    Author
+                </th>
+                <th scope="col">
+                    Titulo
+                </th>
+                <th scope="col">
+                    Descripcion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for post in post%}
+            <tr class="text-center">
 
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <h1 class="text-center mx-auto sticky-top">
-                <a href="/" class="text-primary text-center font-weigth-ligther">Mi Blog Django</a>
-            </h1>
-        </div>
-        <div class="row">
-            <table class="table table-hover">
-                <thead class="thead-dark text-center">
-                    <tr>
-                        <th scope="col">
-                            No.
-                        </th>
-                        <th scope="col">
-                            Author
-                        </th>
-                        <th scope="col">
-                            Titulo
-                        </th>
-                        <th scope="col">
-                            Descripcion
-                        </th>
-                        <th scope="col">
-                            FechaCreacion
-                        </th>
-                        <th scope="col">
-                            FechaPublicacion
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {%for post in post%}
-                        <tr class="text-center">
+                <th scope="row">
+                    {{post.id}}
+                </th>
 
-                            <th scope="row">
-                                {{post.id}}
-                            </th>
+                <td>
+                    {{post.author}}
+                </td>
 
-                            <td>
-                                {{post.author}}
-                            </td>
+                <td>
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="text-info">
+                        {{post.title}}
+                    </a>
+                </td>
 
-                            <td>
-                                {{post.title}}
-                            </td>
+                <td>
+                    {{post.text}}
+                </td>
 
-                            <td>
-                                {{post.text}}
-                            </td>
-
-                            <td>
-                                {{post.created_date}}
-                            </td>
-
-                            <td>
-                                {{post.published_date}}
-                            </td>
-                            
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
