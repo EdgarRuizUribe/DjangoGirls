@@ -1,0 +1,16 @@
+{% extends 'blog/base.html'%}
+{% block button %} {% endblock %}
+{% block content %}
+<div style="display:block; width: 100%; margin-bottom: 30px;" class="pl-3 bg-success text-white">
+    <h1 class="font-weight-light mx-auto">
+        Agregar Post
+    </h1>
+</div>
+<div class="mx-auto">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit" >Guardar</button>
+    </form>
+</div>
+{% endblock %}

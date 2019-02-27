@@ -1,62 +1,16 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<div class="row">
-        <table class="table table-hover">
-            <thead class="thead-dark text-center">
-                <tr>
-                    <th scope="col">
-                        No.
-                    </th>
-                    <th scope="col">
-                        Author
-                    </th>
-                    <th scope="col">
-                        Titulo
-                    </th>
-                    <th scope="col">
-                        Descripcion
-                    </th>
-                    <th scope="col">
-                        FechaCreacion
-                    </th>
-                    <th scope="col">
-                        FechaPublicacion
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-             
-                <tr class="text-center">
-    
-                    <th scope="row">
-                        {{post.id}}
-                    </th>
-    
-                    <td>
-                        {{post.author}}
-                    </td>
-    
-                    <td>
-                        
-                            {{post.title}}
-                       
-                    </td>
-    
-                    <td>
-                        {{post.text}}
-                    </td>
-    
-                    <td>
-                        {{post.created_date}}
-                    </td>
-    
-                    <td>
-                        {{post.published_date}}
-                    </td>
-    
-                </tr>
-              
-            </tbody>
-        </table>
+
+
+    <div class="alert alert-success mx-auto" role="alert">
+        <h4 class="alert-heading">{{post.title}}</h4>
+        <p>{{post.text}}</p>
+        <p>Fecha de Creacion: {{post.created_date}}</p>
+        <p>Fecha de Publicacion: {{post.published_date}}</p>
+        <hr>
+        <p class="text-right">{{ post.author }}</p>
+
     </div>
+
+
 {% endblock %}
