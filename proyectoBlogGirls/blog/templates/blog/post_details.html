@@ -2,13 +2,21 @@
 {% block content %}
 
 
-    <div class="alert alert-success mx-auto" role="alert">
-        <h4 class="alert-heading">{{post.title}}</h4>
-        <p>{{post.text}}</p>
-        <p>Fecha de Creacion: {{post.created_date}}</p>
-        <p>Fecha de Publicacion: {{post.published_date}}</p>
+    <div class="alert alert-light mx-auto" role="alert" style="width:100%;">
+        <h4 class="alert-heading" style="font-size: 18px;">{{post.title}}</h4>
+        <p style="font-size:22px;" class="font-weight-lighter">{{post.text}}</p>
+        <div style="font-size:10px; display: flex; justify-content: space-between; font-style:italic;" class="font-weight-lighter">
+            <p style="margin: 0;">Publicado: {{post.published_date}}</p>
+            <p style="margin: 0;">Creado: {{post.created_date}}</p>
+        </div>
         <hr>
-        <p class="text-right">{{ post.author }}</p>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+            <i><a style="font-size: 10px;" class="btn btn-light" href="{% url 'post_edit' pk=post.pk %}" role="button">EDITAR</a></i>
+            <i><a style="font-size: 10px;" class="btn btn-light" href="{% url 'post_delete' pk=post.pk %}" role="button">ELIMINAR</a></i>
+            </div>
+            <p>{{ post.author }}</p>
+        </div>
 
     </div>
 
