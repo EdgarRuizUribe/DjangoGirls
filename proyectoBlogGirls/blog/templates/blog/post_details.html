@@ -12,8 +12,10 @@
         <hr>
         <div style="display: flex; justify-content: space-between;">
             <div>
+            {% if user.is_authenticated%}
             <i><a style="font-size: 10px;" class="btn btn-light" href="{% url 'post_edit' pk=post.pk %}" role="button">EDITAR</a></i>
             <i><a style="font-size: 10px;" class="btn btn-light" href="{% url 'post_delete' pk=post.pk %}" role="button">ELIMINAR</a></i>
+            {% endif %}
             </div>
             <p>{{ post.author }}</p>
         </div>
